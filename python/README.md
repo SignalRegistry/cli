@@ -88,7 +88,7 @@ SignalRegistryCli
 .venv/Scripts/SignalRegistryCli
 ```
 
-Expected output: `1.005`
+Expected output: "Hello, Signal Registry!"
 
 ### 6. Initialize git and connect the remote
 
