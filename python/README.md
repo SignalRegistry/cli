@@ -13,7 +13,7 @@ cnf/
 ├── README.md
 ├── .gitignore
 ├── src/
-│   └── SignalRegistry/
+│   └── SRCli/
 │       ├── __init__.py
 │       ├── core.py
 │       └── cli.py
@@ -31,7 +31,7 @@ requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "SignalRegistry"
+name = "SRCli"
 version = "0.0.1"
 description = "Signal Registry Platform Python Interface"
 readme = "README.md"
@@ -49,7 +49,7 @@ dependencies = []
 Repository = "https://github.com/SignalRegistry/cli.git"
 
 [project.scripts]
-SignalRegistryCli = "SignalRegistry.cli:main"
+SRCli = "SRCli.cli:main"
 
 [project.optional-dependencies]
 test = ["pytest"]
@@ -73,7 +73,7 @@ environment first so `pytest` and the CLI script resolve on `PATH`:
 ```powershell
 .venv\Scripts\Activate.ps1
 pytest -v
-SignalRegistryCli
+SRCli
 ```
 
 ### 4. Run the tests
@@ -85,7 +85,7 @@ SignalRegistryCli
 ### 5. Verify the CLI
 
 ```bash
-.venv/Scripts/SignalRegistryCli
+.venv/Scripts/SRCli
 ```
 
 Expected output: "Hello, Signal Registry!"
@@ -97,7 +97,7 @@ git init
 git remote add origin https://github.com/SignalRegistry/cli.git
 git branch -M main
 git add -A
-git commit -m "Initial commit: SignalRegistry package scaffold"
+git commit -m "Initial commit: SRCli package scaffold"
 ```
 
 ### 7. Push to GitHub (when ready)

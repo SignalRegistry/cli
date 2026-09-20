@@ -3,7 +3,7 @@ requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "SignalRegistry"
+name = "SRCli"
 version = "0.0.1"
 description = "Signal Registry Platform Python Interface"
 readme = "README.md"
@@ -21,7 +21,7 @@ dependencies = ["websocket-client"]
 Repository = "https://github.com/SignalRegistry/cli.git"
 
 [project.scripts]
-SignalRegistryCli = "SignalRegistry.cli:main"
+SRCli = "SRCli.cli:main"
 
 [project.optional-dependencies]
 test = ["pytest"]
