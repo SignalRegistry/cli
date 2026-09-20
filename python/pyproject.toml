@@ -15,7 +15,7 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-dependencies = ["websocket-client"]
+dependencies = ["websocket-client", "rel"]
 
 [project.urls]
 Repository = "https://github.com/SignalRegistry/cli.git"
