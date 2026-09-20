@@ -5,18 +5,6 @@ import rel
 import websocket
 
 
-def on_message(ws, message):
-    print(message)
-
-def on_error(ws, error):
-    print(error)
-
-def on_close(ws, close_status_code, close_msg):
-    print("### closed ###")
-
-def on_open(ws):
-    print("Opened connection")
-
 # Enumeration for SignalRegistry platform interface types
 class InterfaceType(Flag):
   REGISTRY_WEBSOCKET = auto()
@@ -48,6 +36,18 @@ class SignalRegistry:
     
     # Create registry websocket connection here
     if self.interfaceType == InterfaceType.WEBSOCKET:
+      # Create handler functions for websocket events
+      def on_message(ws, message):
+          print(message)
+
+      def on_error(ws, error):
+          print(error)
+
+      def on_close(ws, close_status_code, close_msg):
+          print("### closed ###")
+
+      def on_open(ws):
+          print("Opened connection")
       websocket.enableTrace(True)
       ws = websocket.WebSocketApp(self.host,
                                 on_open    = on_open,
