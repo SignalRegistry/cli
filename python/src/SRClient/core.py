@@ -5,15 +5,15 @@ import rel
 import websocket
 
 
-# Enumeration for SRCli platform interface types
+# Enumeration for SRClient platform interface types
 class InterfaceType(Flag):
     REGISTRY_WEBSOCKET = auto()
     NODE_WEBSOCKET     = auto()
     WEBSOCKET          = REGISTRY_WEBSOCKET | NODE_WEBSOCKET
   
-class SRCli:
+class SRClient:
   
-    # Class constructor which initializes the SRCli platform interface kwargs 
+    # Class constructor which initializes the SRClient platform interface kwargs 
     def __init__(self, **kwargs):
         # If 'userId', 'sessionId', and 'registryId' are provided, it is registry socket connection
         if kwargs.get("sessionId") and kwargs.get("userId") and kwargs.get("registryId"):
@@ -31,7 +31,7 @@ class SRCli:
             self.interfaceType = InterfaceType.NODE_WEBSOCKET
             self.host          = kwargs.get("host", f"wss://api.signalregistry.net/ws/node?registryId={self.registryId}&nodeId={self.nodeId}")
         else:
-            raise ValueError("Invalid combination of arguments for SRCli initialization")
+            raise ValueError("Invalid combination of arguments for SRClient initialization")
         
 
         self.ws = None
