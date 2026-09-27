@@ -2,24 +2,24 @@
 from importlib.metadata import version
 
 
-def test_package_metadata_uses_src_cli_name():
+def test_package_metadata_uses_SRClient_name():
     assert version("SRClient") == "0.0.1"
 
 
-def test_package_metadata_uses_src_cli_version():
+def test_package_metadata_uses_SRClient_version():
     from SRClient import __version__
     assert __version__ == "0.0.1"
 
 
-def test_src_cli_importable():
+def test_SRClient_importable():
     import SRClient
     assert SRClient is not None
     
-def test_src_cli_has_version_attribute():
+def test_SRClient_has_version_attribute():
     import SRClient
     assert hasattr(SRClient, "__version__")
     
-def test_src_cli_version_matches_package_metadata():  
+def test_SRClient_version_matches_package_metadata():  
     from importlib.metadata import version
 
     import SRClient
