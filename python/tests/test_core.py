@@ -26,27 +26,44 @@ def test_SRClient_version_matches_package_metadata():
     assert SRClient.__version__ == version("SRClient")
     
 def test_SRClient_constructor_node_websocket():
+    # Read environment variables for registry and node IDs
+    import os
+    if os.getenv("HOST_TYPE") == "remote":
+        registryId = os.getenv("REGISTRY_ID_REMOTE")
+        nodeId     = os.getenv("NODE_ID_REMOTE")
+    else:
+        registryId = os.getenv("REGISTRY_ID_LOCAL")
+        nodeId     = os.getenv("NODE_ID_LOCAL")
     from SRClient import SRClient
-    registryId = "1f13e918d657c7f25ec1ec63b1e7ace0"
-    nodeId     = "a9793c033ea0e3a0312d829e92b7b901"
-    # instance = SRClient(sessionId=sessionId, userId=userId, registryId=registryId)
     instance = SRClient(registryId=registryId, nodeId=nodeId)
-    # instance.connect()
     assert instance is not None
     
 def test_SRClient_constructor_registry_websocket():
+    import os
+    if os.getenv("HOST_TYPE") == "remote":
+        sessionId  = os.getenv("SESSION_ID_REMOTE")
+        userId     = os.getenv("USER_ID_REMOTE")
+        registryId = os.getenv("REGISTRY_ID_REMOTE")
+    else:
+        sessionId  = os.getenv("SESSION_ID_LOCAL")
+        userId     = os.getenv("USER_ID_LOCAL")
+        registryId = os.getenv("REGISTRY_ID_LOCAL")
+    print(f"Registry ID: {registryId}, Session ID: {sessionId}, User ID: {userId}")
     from SRClient import SRClient
-    sessionId  = "example_session_id"
-    userId     = "example_user_id"
-    registryId = "1f13e918d657c7f25ec1ec63b1e7ace0"
     instance = SRClient(sessionId=sessionId, userId=userId, registryId=registryId)
     assert instance is not None
  
  
 def test_SRClient_node_websocket_instance():
+    import os
+    if os.getenv("HOST_TYPE") == "remote":
+        registryId = os.getenv("REGISTRY_ID_REMOTE")
+        nodeId     = os.getenv("NODE_ID_REMOTE")
+    else:
+        registryId = os.getenv("REGISTRY_ID_LOCAL")
+        nodeId     = os.getenv("NODE_ID_LOCAL")
+    
     from SRClient import SRClient
-    registryId = "1f13e918d657c7f25ec1ec63b1e7ace0"
-    nodeId     = "a9793c033ea0e3a0312d829e92b7b901"
     instance = SRClient(registryId=registryId, nodeId=nodeId)
     def on_open():
         print("WebSocket connection opened.")
